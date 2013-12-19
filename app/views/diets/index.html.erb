@@ -1,0 +1,15 @@
+<%= link_to "New Diet", new_diet_path %>
+<h1>List of Diets:</h1>
+<br/>
+<% @diets.each do |d| %>
+	<div class="diet_item">
+		<p>Diet Title: <%= d.title %></p>
+		<p>Diet Description: <%= d.text %></p>
+		<%= link_to "View", diet_path(d) %> |
+		<%= link_to "Edit", edit_diet_path(d) %> |
+		<%= link_to 'Destroy', diet_path(d),
+		                    method: :delete,
+							data: { confirm: 'Are you sure?' } %>
+	</div>
+<% end %>
+<br/>

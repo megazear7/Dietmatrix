@@ -1,0 +1,20 @@
+<h1>Create A New Diet</h1>
+
+<%= form_for :diet, url: diets_path do |d| %>
+
+	<p>
+		<%= d.label :title %>
+		<%= d.text_field :title %>
+	</p>
+
+	<p>
+		<%= d.label :text %>
+		<%= d.text_field :text %>
+	</p>
+
+	<%= d.submit %>
+
+<% end %>
+
+<br/>
+<%= link_to "Back", controller: "diets" %>

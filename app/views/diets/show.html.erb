@@ -1,6 +1,10 @@
 <p>Diet Title: <%= @diet.title %></p>
 <p>Diet Description: <%= @diet.text %></p>
 
+<% @diet.foods do |f| %>
+	<%= f.grid_position %>	
+<% end %>
+
 <table>
 	<tr>
 		<th>1</th>

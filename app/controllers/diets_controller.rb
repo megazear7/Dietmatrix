@@ -10,7 +10,11 @@ class DietsController < ApplicationController
 
   def create
   	@diet = Diet.new(params[:diet].permit(:title, :text))
+	@foods = params[:diet].permit(:foods)
 	@diet.save
+	@food = Food.new({:grid_position => params[:diet].permit(:foods)})
+	logger.error "food to be saved: " << @food.to_yaml
+	@diet.foods.create(@food)
 	redirect_to @diet
   end
 
